@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Dusty</string>
+    <string name="log_into_spotify">Log Into Spotify</string>
 </resources>
