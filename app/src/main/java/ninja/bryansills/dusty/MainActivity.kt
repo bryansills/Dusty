@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.login_button)
         button.setOnClickListener {
             val builder = AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI)
-            builder.setScopes(arrayOf("user-read-private", "streaming"))
+            builder.setScopes(arrayOf("user-read-recently-played", "user-library-read"))
             val request = builder.build()
 
             AuthenticationClient.openLoginActivity(this@MainActivity, REQUEST_CODE, request)

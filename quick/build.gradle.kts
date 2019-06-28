@@ -1,5 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val SPOTIFY_AUTHENTICATION_TOKEN: String by project
+
 plugins {
     id("application")
     kotlin("jvm")
@@ -23,4 +25,8 @@ dependencies {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+tasks.run.configure {
+    args = listOf(SPOTIFY_AUTHENTICATION_TOKEN)
 }
