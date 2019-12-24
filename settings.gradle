@@ -1,1 +1,1 @@
-include ':app', ':network', ':quick', ':spotify-auth'
+include ':app', ':network', ':quick', ':spotify-auth', ':server'
