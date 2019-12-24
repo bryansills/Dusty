@@ -2,6 +2,7 @@ package ninja.bryansills.dusty.network
 
 import io.reactivex.Single
 import ninja.bryansills.dusty.network.model.PrivateUserResponse
+import ninja.bryansills.dusty.network.model.RecentlyPlayedResponse
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -17,7 +18,7 @@ class RealNetworkService(authenticationToken: String) : NetworkService {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.spotify.com/v1/")
+            .baseUrl("https://api.spotify.com/")
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(MoshiConverterFactory.create())
@@ -27,4 +28,5 @@ class RealNetworkService(authenticationToken: String) : NetworkService {
     }
 
     override fun getMe(): Single<PrivateUserResponse> = spotifyService.getMe()
+    override fun getRecentlyPlayed(): Single<RecentlyPlayedResponse> = spotifyService.getRecentlyPlayed()
 }
