@@ -1,0 +1,6 @@
+package ninja.bryansills.dusty.server
+
+object BuildConfig {
+    const val CLIENT_ID = "<SNIP>"
+    const val CALLBACK_URL = "https://fake-url.com/callback"
+}
