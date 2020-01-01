@@ -1,7 +1,10 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
     application
     kotlin("jvm")
     id("com.heroku.sdk.heroku-gradle") version "1.0.4"
+    id("com.github.johnrengelman.shadow") version "5.2.0"
 }
 
 group = "ninja.bryansills.dusty"
@@ -25,11 +28,13 @@ dependencies {
     testImplementation("io.ktor:ktor-server-tests:1.2.6")
 }
 
-kotlin.sourceSets["main"].kotlin.srcDirs("src")
-kotlin.sourceSets["test"].kotlin.srcDirs("test")
-
-sourceSets["main"].resources.srcDirs("resources")
-sourceSets["test"].resources.srcDirs("testresources")
+tasks {
+    named<ShadowJar>("shadowJar") {
+        archiveBaseName.set("dusty-server")
+        archiveClassifier.set(null as String?)
+        archiveVersion.set(null as String?)
+    }
+}
 
 heroku {
     appName = "dusty-auth"

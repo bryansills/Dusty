@@ -19,13 +19,10 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 @Suppress("unused") // Referenced in application.conf
 @JvmOverloads
 fun Application.module(testing: Boolean = false) {
-    install(DefaultHeaders) {
-        header("X-Engine", "Ktor") // will send this header with each response
-    }
-
+    install(DefaultHeaders)
     routing {
         get("/") {
-            call.respondText("HELLO BUTTZ!", contentType = ContentType.Text.Plain)
+            call.respondText("HELLO BUTTZ FROM DOCKER!", contentType = ContentType.Text.Plain)
         }
         get("/callback") {
             val queryParameters = call.request.queryParameters
