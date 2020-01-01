@@ -4,7 +4,7 @@ Remove the `.example` suffix from `src/main/java/ninja/bryansills/dusty/server/B
 
 ## Running
 ### Locally
-This app is packaged using [Docker](docker.com), so if you don't have that set up, [follow these instructions](https://medium.com/@yutafujii_59175/a-complete-one-by-one-guide-to-install-docker-on-your-mac-os-using-homebrew-e818eb4cfc3)
+This app is packaged using [Docker](docker.com), so if you don't have that set up, [follow these instructions](https://medium.com/@yutafujii_59175/a-complete-one-by-one-guide-to-install-docker-on-your-mac-os-using-homebrew-e818eb4cfc3).
 If your Docker virtual machine is stopped, execute these commands to get it back up and running:
 
 ```
@@ -26,7 +26,7 @@ $ docker build -t dusty-server .
 $ docker run -m512M --cpus 2 -it -p 8080:8080 --rm dusty-server
 ```
 
-(Make this step better) The server should now be up and running. You can access from the `8080` port at the IP address that was outputted as a result of the `$ docker-machine env default` command
+(Make this step better) The server should now be up and running. You can access from the `8080` port at the IP address that was outputted as a result of the `$ docker-machine env default` command.
 Once you are done, make sure to stop the Docker virtual machine by running the following command:
 
 ```
