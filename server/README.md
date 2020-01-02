@@ -38,4 +38,4 @@ $ docker-machine stop default
 TODO
 
 ### Pushing to Heroku
-TODO
+After building the image locally, follow these instructions (generally) *[HERE](https://devcenter.heroku.com/articles/container-registry-and-runtime#getting-started)*

@@ -22,7 +22,7 @@ fun Application.module(testing: Boolean = false) {
     install(DefaultHeaders)
     routing {
         get("/") {
-            call.respondText("HELLO BUTTZ FROM DOCKER!", contentType = ContentType.Text.Plain)
+            call.respondText("HELLO BUTTZ FROM BUILT DOCKER!", contentType = ContentType.Text.Plain)
         }
         get("/callback") {
             val queryParameters = call.request.queryParameters
