@@ -32,7 +32,7 @@ tasks {
     named<ShadowJar>("shadowJar") {
         archiveBaseName.set("dusty-server")
         archiveClassifier.set(null as String?)
-        archiveVersion.set(null as String?)
+        archiveVersion.set("")
     }
 }
 

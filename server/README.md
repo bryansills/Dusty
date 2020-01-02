@@ -23,10 +23,11 @@ After the build finishes, run the following Docker commands from within the `./s
 
 ```
 $ docker build -t dusty-server .
-$ docker run -m512M --cpus 2 -it -p 8080:8080 --rm dusty-server
+$ docker-machine ip
+$ docker run -it -p 8080:8080 --rm dusty-server
 ```
 
-(Make this step better) The server should now be up and running. You can access from the `8080` port at the IP address that was outputted as a result of the `$ docker-machine env default` command.
+The server should now be up and running. You can access from the `8080` port at the IP address that was outputted as a result of the `$ docker-machine ip` command.
 Once you are done, make sure to stop the Docker virtual machine by running the following command:
 
 ```
