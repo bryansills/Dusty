@@ -1,6 +1,8 @@
 FROM openjdk:8-jre-alpine AS BUILD_JAR
 WORKDIR /usr/app/
 COPY . .
+COPY ./app/gradle.properties.example ./app/gradle.properties
+COPY ./server/src/main/java/ninja/bryansills/dusty/server/BuildConfig.kt.example ./server/src/main/java/ninja/bryansills/dusty/server/BuildConfig.kt
 RUN ./gradlew clean :server:build
 
 FROM openjdk:8-jre-alpine
