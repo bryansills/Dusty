@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine AS BUILD_JAR
+FROM openjdk:8-alpine AS BUILD_JAR
 WORKDIR /usr/app/
 COPY . .
 COPY ./app/gradle.properties.example ./app/gradle.properties
