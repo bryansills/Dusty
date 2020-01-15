@@ -16,13 +16,12 @@ $ eval $(docker-machine env default)
 Once your Docker virtual machine is up and running, build the server by executing the following command within the root of this repository:
 
 ```
-$ ./gradlew :server:build
+$ docker build -t dusty-server .'
 ```
 
-After the build finishes, run the following Docker commands from within the `./server/` folder of the repository:
+After the build finishes, run the following Docker commands to launch the web server:
 
 ```
-$ docker build -t dusty-server .
 $ docker-machine ip
 $ docker run -it -p 8080:8080 --rm dusty-server
 ```
@@ -38,4 +37,4 @@ $ docker-machine stop default
 TODO
 
 ### Pushing to Heroku
-After building the image locally, follow these instructions (generally) *[HERE](https://devcenter.heroku.com/articles/container-registry-and-runtime#getting-started)*
+After setting up the necessary config vars in Heroku (see `BuildConfig.kt.example`), follow the instructions [HERE](https://devcenter.heroku.com/articles/build-docker-images-heroku-yml)
