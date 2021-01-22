@@ -2,9 +2,13 @@ buildscript {
     ext.versions = [
         'kotlin': '1.4.21',
         'android_gradle_plugin': '4.0.2',
+        'shadow_jar': '6.1.0',
         'ktor': '1.5.0',
         'appcompat': '1.2.0',
-        'constraint_layout': '2.0.4'
+        'constraint_layout': '2.0.4',
+        'rxjava': '2.2.20',
+        'retrofit': '2.9.0',
+        'moshi': '1.11.0'
     ]
     ext.build_config = [
         'compile_sdk': 30,
@@ -16,10 +20,25 @@ buildscript {
             'gradle_plugin': "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
             'stdlib': "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
         ],
+        'ktor': [
+            'netty': "io.ktor:ktor-server-netty:${versions.ktor}",
+            'core': "io.ktor:ktor-server-core:${versions.ktor}"
+        ],
         'android': [
             'gradle_plugin': "com.android.tools.build:gradle:${versions.android_gradle_plugin}",
             'appcompat': "androidx.appcompat:appcompat:${versions.appcompat}",
             'constraint_layout': "androidx.constraintlayout:constraintlayout:${versions.constraint_layout}"
+        ],
+        'shadow_jar': "com.github.jengelman.gradle.plugins:shadow:${versions.shadow_jar}",
+        'rxjava': "io.reactivex.rxjava2:rxjava:${versions.rxjava}",
+        'retrofit': [
+            'core': "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            'rxjava': "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}",
+            'moshi': "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
+        ],
+        'moshi': [
+            'kotlin': "com.squareup.moshi:moshi-kotlin:${versions.moshi}",
+            'codegen': "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
         ]
     ]
     repositories {
@@ -30,6 +49,7 @@ buildscript {
     dependencies {
         classpath deps.android.gradle_plugin
         classpath deps.kotlin.gradle_plugin
+        classpath deps.shadow_jar
     }
 }
 

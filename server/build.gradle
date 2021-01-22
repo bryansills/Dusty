@@ -1,0 +1,23 @@
+apply plugin: "com.github.johnrengelman.shadow"
+apply plugin: "java"
+apply plugin: "application"
+apply plugin: "kotlin"
+
+group = "ninja.bryansills.dusty"
+version = "0.0.1-SNAPSHOT"
+
+application {
+    mainClassName = "io.ktor.server.netty.EngineMain"
+}
+
+dependencies {
+    implementation(deps.kotlin.stdlib)
+    implementation(deps.ktor.core)
+    implementation(deps.ktor.netty)
+}
+
+shadowJar {
+    archiveBaseName.set('dusty-server')
+    archiveClassifier.set(null)
+    archiveVersion.set('')
+}
