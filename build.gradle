@@ -59,6 +59,34 @@ allprojects {
         mavenCentral()
         jcenter()
     }
+    plugins.withType(com.android.build.gradle.BasePlugin).configureEach { plugin ->
+        plugin.extension.compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_1_8
+            targetCompatibility = JavaVersion.VERSION_1_8
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach { task ->
+        task.sourceCompatibility = JavaVersion.VERSION_1_8
+        task.targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile).configureEach { task ->
+        task.kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+    tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinCompile).configureEach { task ->
+        task.kotlinOptions {
+            freeCompilerArgs += [
+                    '-XXLanguage:+NewInference',
+                    '-progressive',
+                    '-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi',
+                    '-Xuse-experimental=kotlinx.coroutines.ObsoleteCoroutinesApi',
+                    '-Xuse-experimental=kotlin.time.ExperimentalTime',
+            ]
+        }
+    }
 }
 
 task clean(type: Delete) {
