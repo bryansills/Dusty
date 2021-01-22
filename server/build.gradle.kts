@@ -3,8 +3,7 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     application
     kotlin("jvm")
-    id("com.heroku.sdk.heroku-gradle") version "1.0.4"
-    id("com.github.johnrengelman.shadow") version "5.2.0"
+    id("com.github.johnrengelman.shadow") version "6.1.0"
 }
 
 group = "ninja.bryansills.dusty"
@@ -34,8 +33,4 @@ tasks {
         archiveClassifier.set(null as String?)
         archiveVersion.set("")
     }
-}
-
-heroku {
-    appName = "dusty-auth"
 }
