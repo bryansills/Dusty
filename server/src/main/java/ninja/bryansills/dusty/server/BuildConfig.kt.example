@@ -2,5 +2,6 @@ package ninja.bryansills.dusty.server
 
 object BuildConfig {
     val CLIENT_ID = System.getenv("CLIENT_ID") ?: "HAHA YOU MESSED UP DEPLOYING TO DOCKER>"
+    val CLIENT_SECRET = System.getenv("CLIENT_SECRET") ?: "WOW YOU GOOFED BAD"
     val CALLBACK_URL = System.getenv("CALLBACK_URL") ?: "https://fake-url.com/NOT/REAL/LOL/U/R/BAD/AT/THINGS"
 }

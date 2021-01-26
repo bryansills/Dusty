@@ -1,6 +1,7 @@
 buildscript {
     ext.versions = [
         'kotlin': '1.4.21',
+        'coroutines': '1.4.2',
         'android_gradle_plugin': '4.0.2',
         'shadow_jar': '6.1.0',
         'ktor': '1.5.0',
@@ -8,7 +9,8 @@ buildscript {
         'constraint_layout': '2.0.4',
         'rxjava': '2.2.20',
         'retrofit': '2.9.0',
-        'moshi': '1.11.0'
+        'moshi': '1.11.0',
+        'okhttp': '4.9.0'
     ]
     ext.build_config = [
         'compile_sdk': 30,
@@ -18,7 +20,8 @@ buildscript {
     ext.deps = [
         'kotlin': [
             'gradle_plugin': "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
-            'stdlib': "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+            'stdlib': "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
+            'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
         ],
         'ktor': [
             'netty': "io.ktor:ktor-server-netty:${versions.ktor}",
@@ -39,7 +42,8 @@ buildscript {
         'moshi': [
             'kotlin': "com.squareup.moshi:moshi-kotlin:${versions.moshi}",
             'codegen': "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
-        ]
+        ],
+        'okhttp': "com.squareup.okhttp3:okhttp:${versions.okhttp}"
     ]
     repositories {
         google()

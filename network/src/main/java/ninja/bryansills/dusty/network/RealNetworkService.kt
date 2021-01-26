@@ -8,13 +8,13 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-class RealNetworkService(authenticationToken: String) : NetworkService {
+class RealNetworkService(accessToken: String) : NetworkService {
 
     private val spotifyService: SpotifyService
 
     init {
         val okHttpClient = OkHttpClient.Builder()
-            .addInterceptor(AuthenticationInterceptor(authenticationToken))
+            .addInterceptor(AccessTokenInterceptor(accessToken))
             .build()
 
         val retrofit = Retrofit.Builder()

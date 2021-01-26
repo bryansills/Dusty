@@ -1,6 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val SPOTIFY_AUTHENTICATION_TOKEN: String by project
+val SPOTIFY_ACCESS_TOKEN: String by project
 
 plugins {
     id("application")
@@ -28,5 +28,5 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.run.configure {
-    args = listOf(SPOTIFY_AUTHENTICATION_TOKEN)
+    args = listOf(SPOTIFY_ACCESS_TOKEN)
 }

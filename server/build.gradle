@@ -11,6 +11,7 @@ application {
 }
 
 dependencies {
+    implementation project(':network-auth')
     implementation(deps.kotlin.stdlib)
     implementation(deps.ktor.core)
     implementation(deps.ktor.netty)
