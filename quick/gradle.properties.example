@@ -1,1 +1,5 @@
 SPOTIFY_ACCESS_TOKEN=snip-no-quotation-marks
+SPOTIFY_CLIENT_ID=snip-no-quotation-marks
+SPOTIFY_CLIENT_SECRET=snip-no-quotation-marks
+SPOTIFY_REDIRECT_URI=https://something.cool.com/callback
+SPOTIFY_AUTHORIZATION_CODE=snip-no-quotation-marks

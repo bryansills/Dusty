@@ -1,6 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val SPOTIFY_ACCESS_TOKEN: String by project
+val SPOTIFY_CLIENT_ID: String by project
+val SPOTIFY_CLIENT_SECRET: String by project
+val SPOTIFY_REDIRECT_URI: String by project
+val SPOTIFY_AUTHORIZATION_CODE: String by project
 
 plugins {
     id("application")
@@ -19,7 +23,9 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
     implementation(project(":network"))
+    implementation(project(":network-auth"))
     implementation("io.reactivex.rxjava2:rxjava:2.2.10")
 }
 
@@ -28,5 +34,11 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.run.configure {
-    args = listOf(SPOTIFY_ACCESS_TOKEN)
+    args = listOf(
+        SPOTIFY_ACCESS_TOKEN,
+        SPOTIFY_CLIENT_ID,
+        SPOTIFY_CLIENT_SECRET,
+        SPOTIFY_REDIRECT_URI,
+        SPOTIFY_AUTHORIZATION_CODE
+    )
 }
