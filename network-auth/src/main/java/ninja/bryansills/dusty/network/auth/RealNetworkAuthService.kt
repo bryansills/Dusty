@@ -1,7 +1,6 @@
 package ninja.bryansills.dusty.network.auth
 
 import ninja.bryansills.dusty.network.auth.model.TokenResponse
-import ninja.bryansills.dusty.network.core.AuthenticationInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
