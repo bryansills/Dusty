@@ -10,8 +10,7 @@ buildscript {
         'constraint_layout': '2.0.4',
         'rxjava': '2.2.20',
         'retrofit': '2.9.0',
-        'moshi': '1.11.0',
-        'okhttp': '4.9.0'
+        'moshi': '1.11.0'
     ]
     ext.build_config = [
         'compile_sdk': 30,
@@ -44,8 +43,7 @@ buildscript {
         'moshi': [
             'kotlin': "com.squareup.moshi:moshi-kotlin:${versions.moshi}",
             'codegen': "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
-        ],
-        'okhttp': "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+        ]
     ]
     repositories {
         google()

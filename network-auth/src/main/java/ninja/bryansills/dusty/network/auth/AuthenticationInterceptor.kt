@@ -10,7 +10,7 @@ class AuthenticationInterceptor(clientId: String, clientSecret: String) : Interc
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
             .newBuilder()
-            .addHeader("Authorization", "Bearer $authenticationToken")
+            .addHeader("Authorization", "Basic $authenticationToken")
             .build()
         return chain.proceed(request)
     }
