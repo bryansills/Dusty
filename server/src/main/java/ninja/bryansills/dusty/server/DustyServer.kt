@@ -1,9 +1,7 @@
 package ninja.bryansills.dusty.server
 
-import io.ktor.application.Application
-import io.ktor.application.call
-import io.ktor.application.install
-import io.ktor.features.DefaultHeaders
+import io.ktor.application.*
+import io.ktor.features.*
 import io.ktor.http.ContentType
 import io.ktor.http.ParametersBuilder
 import io.ktor.http.URLBuilder
@@ -22,6 +20,8 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 @JvmOverloads
 fun Application.module(testing: Boolean = false) {
     install(DefaultHeaders)
+    install(CallLogging)
+
     val networkAuthService: NetworkAuthService = RealNetworkAuthService(
         BuildConfig.CALLBACK_URL,
         BuildConfig.CLIENT_ID,
@@ -30,12 +30,16 @@ fun Application.module(testing: Boolean = false) {
 
     routing {
         get("/") {
+            log.info("BLARG ROOT")
             call.respondText("HELLO BUTTZ FROM BUILT DOCKER!", contentType = ContentType.Text.Plain)
         }
         get("/callback") {
             val queryParameters = call.request.queryParameters
+            log.info("BLARG QUERY PARAMS ${queryParameters.toMap()}")
             val authorizationCode = queryParameters.getOrFail("code")
+            log.info("BLARG AUTH CODE $authorizationCode")
             val tokenResponse = networkAuthService.requestTokens(authorizationCode)
+            log.info("BLARG TOKEN RESPONSE $tokenResponse")
             call.respondText(tokenResponse.toString(), ContentType.Text.Html)
         }
         get("/start") {

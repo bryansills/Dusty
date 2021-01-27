@@ -5,6 +5,7 @@ buildscript {
         'android_gradle_plugin': '4.0.2',
         'shadow_jar': '6.1.0',
         'ktor': '1.5.0',
+        'logback': '1.2.3',
         'appcompat': '1.2.0',
         'constraint_layout': '2.0.4',
         'rxjava': '2.2.20',
@@ -33,6 +34,7 @@ buildscript {
             'constraint_layout': "androidx.constraintlayout:constraintlayout:${versions.constraint_layout}"
         ],
         'shadow_jar': "com.github.jengelman.gradle.plugins:shadow:${versions.shadow_jar}",
+        'logback': "ch.qos.logback:logback-classic:${versions.logback}",
         'rxjava': "io.reactivex.rxjava2:rxjava:${versions.rxjava}",
         'retrofit': [
             'core': "com.squareup.retrofit2:retrofit:${versions.retrofit}",
