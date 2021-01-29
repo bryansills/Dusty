@@ -35,12 +35,13 @@ fun Application.module(testing: Boolean = false) {
         }
         get("/callback") {
             val queryParameters = call.request.queryParameters
-            log.info("BLARG QUERY PARAMS ${queryParameters.toMap()}")
-            val authorizationCode = queryParameters.getOrFail("code")
-            log.info("BLARG AUTH CODE $authorizationCode")
-            val tokenResponse = networkAuthService.requestTokens(authorizationCode)
-            log.info("BLARG TOKEN RESPONSE $tokenResponse")
-            call.respondText(tokenResponse.toString(), ContentType.Text.Plain)
+            call.respondText(queryParameters.toMap().toString())
+//            log.info("BLARG QUERY PARAMS ${queryParameters.toMap()}")
+//            val authorizationCode = queryParameters.getOrFail("code")
+//            log.info("BLARG AUTH CODE $authorizationCode")
+//            val tokenResponse = networkAuthService.requestTokens(authorizationCode)
+//            log.info("BLARG TOKEN RESPONSE $tokenResponse")
+//            call.respondText(tokenResponse.toString(), ContentType.Text.Plain)
         }
         get("/start") {
             val uriBuilder = URLBuilder(
