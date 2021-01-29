@@ -23,9 +23,9 @@ fun Application.module(testing: Boolean = false) {
     install(CallLogging)
 
     val networkAuthService: NetworkAuthService = RealNetworkAuthService(
-        BuildConfig.CALLBACK_URL,
         BuildConfig.CLIENT_ID,
-        BuildConfig.CLIENT_SECRET
+        BuildConfig.CLIENT_SECRET,
+        BuildConfig.CALLBACK_URL
     )
 
     routing {
@@ -35,13 +35,12 @@ fun Application.module(testing: Boolean = false) {
         }
         get("/callback") {
             val queryParameters = call.request.queryParameters
-            call.respondText(queryParameters.toMap().toString())
-//            log.info("BLARG QUERY PARAMS ${queryParameters.toMap()}")
-//            val authorizationCode = queryParameters.getOrFail("code")
-//            log.info("BLARG AUTH CODE $authorizationCode")
-//            val tokenResponse = networkAuthService.requestTokens(authorizationCode)
-//            log.info("BLARG TOKEN RESPONSE $tokenResponse")
-//            call.respondText(tokenResponse.toString(), ContentType.Text.Plain)
+            log.info("BLARG QUERY PARAMS ${queryParameters.toMap()}")
+            val authorizationCode = queryParameters.getOrFail("code")
+            log.info("BLARG AUTH CODE $authorizationCode")
+            val tokenResponse = networkAuthService.requestTokens(authorizationCode)
+            log.info("BLARG TOKEN RESPONSE $tokenResponse")
+            call.respondText(tokenResponse.toString(), ContentType.Text.Plain)
         }
         get("/start") {
             val uriBuilder = URLBuilder(
