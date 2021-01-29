@@ -40,7 +40,7 @@ fun Application.module(testing: Boolean = false) {
             log.info("BLARG AUTH CODE $authorizationCode")
             val tokenResponse = networkAuthService.requestTokens(authorizationCode)
             log.info("BLARG TOKEN RESPONSE $tokenResponse")
-            call.respondText(tokenResponse.toString(), ContentType.Text.Html)
+            call.respondText(tokenResponse.toString(), ContentType.Text.Plain)
         }
         get("/start") {
             val uriBuilder = URLBuilder(
