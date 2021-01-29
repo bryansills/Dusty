@@ -8,5 +8,6 @@ dependencies {
     implementation(deps.retrofit.core)
     implementation(deps.retrofit.moshi)
     implementation(deps.moshi.kotlin)
+    implementation(deps.okhttp.logging)
     kapt(deps.moshi.codegen)
 }

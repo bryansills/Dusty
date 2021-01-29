@@ -6,21 +6,13 @@ import ninja.bryansills.dusty.network.RealNetworkService
 import ninja.bryansills.dusty.network.auth.RealNetworkAuthService
 
 fun main(args: Array<String>) {
-    val networkAuthService = RealNetworkAuthService(args[1], args[2], args[3])
+    println(args.toList().toString())
+    val networkAuthService = RealNetworkAuthService(args[0], args[1], args[2])
 
-    println("yo1")
     runBlocking {
-        println("yo2")
-        withTimeout(10000) {
-            println("yo3")
-            networkAuthService.requestTokens(args[4])
-            println("yo4")
-        }
-        println("yo5")
+        val tokenResponse = networkAuthService.requestTokens(args[3])
+        val networkService = RealNetworkService(tokenResponse.accessToken)
+        val response = networkService.getRecentlyPlayed().blockingGet()
+        println(response.toString())
     }
-    println("yo6")
-
-    val networkService = RealNetworkService(args[0])
-    val response = networkService.getRecentlyPlayed().blockingGet()
-    println(response.toString())
 }

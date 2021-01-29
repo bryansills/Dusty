@@ -2,6 +2,7 @@ package ninja.bryansills.dusty.network.auth
 
 import ninja.bryansills.dusty.network.auth.model.TokenResponse
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
@@ -18,6 +19,7 @@ class RealNetworkAuthService(
     init {
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(AuthenticationInterceptor(clientId, clientSecret))
+            .addInterceptor(HttpLoggingInterceptor().also { it.level = HttpLoggingInterceptor.Level.BODY })
             .build()
 
         val retrofit: Retrofit = Retrofit.Builder()

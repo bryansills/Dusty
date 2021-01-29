@@ -1,6 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val SPOTIFY_ACCESS_TOKEN: String by project
 val SPOTIFY_CLIENT_ID: String by project
 val SPOTIFY_CLIENT_SECRET: String by project
 val SPOTIFY_REDIRECT_URI: String by project
@@ -35,7 +34,6 @@ tasks.withType<KotlinCompile> {
 
 tasks.run.configure {
     args = listOf(
-        SPOTIFY_ACCESS_TOKEN,
         SPOTIFY_CLIENT_ID,
         SPOTIFY_CLIENT_SECRET,
         SPOTIFY_REDIRECT_URI,
