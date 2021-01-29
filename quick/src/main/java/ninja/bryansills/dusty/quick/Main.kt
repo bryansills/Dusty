@@ -1,7 +1,6 @@
 package ninja.bryansills.dusty.quick
 
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withTimeout
 import ninja.bryansills.dusty.network.RealNetworkService
 import ninja.bryansills.dusty.network.auth.RealNetworkAuthService
 
@@ -11,8 +10,9 @@ fun main(args: Array<String>) {
 
     runBlocking {
         val tokenResponse = networkAuthService.requestTokens(args[3])
+        println(tokenResponse)
         val networkService = RealNetworkService(tokenResponse.accessToken)
-        val response = networkService.getRecentlyPlayed().blockingGet()
-        println(response.toString())
+        val meResponse = networkService.getMe()
+        println(meResponse)
     }
 }

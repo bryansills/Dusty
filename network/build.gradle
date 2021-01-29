@@ -3,10 +3,10 @@ apply plugin: "kotlin-kapt"
 
 dependencies {
     implementation(deps.kotlin.stdlib)
-    implementation(deps.rxjava)
+    implementation(deps.kotlin.coroutines)
     implementation(deps.retrofit.core)
-    implementation(deps.retrofit.rxjava)
     implementation(deps.retrofit.moshi)
     implementation(deps.moshi.kotlin)
+    implementation(deps.okhttp.logging)
     kapt(deps.moshi.codegen)
 }

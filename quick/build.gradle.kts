@@ -25,7 +25,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
     implementation(project(":network"))
     implementation(project(":network-auth"))
-    implementation("io.reactivex.rxjava2:rxjava:2.2.10")
 }
 
 tasks.withType<KotlinCompile> {
