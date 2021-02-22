@@ -89,7 +89,7 @@ fun Application.module(testing: Boolean = false) {
                         unsafe {
                             raw(
                                 """
-                                    dusty.passToken("${tokenResponse.accessToken}", "${tokenResponse.refreshToken}", ${tokenResponse.expiresIn});"
+                                    dusty.passToken("${tokenResponse.accessToken}", "${tokenResponse.refreshToken}", ${tokenResponse.expiresIn});
                                 """.trimIndent()
                             )
                         }
