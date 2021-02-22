@@ -5,6 +5,7 @@ buildscript {
         'android_gradle_plugin': '4.0.2',
         'shadow_jar': '6.1.0',
         'ktor': '1.5.0',
+        'kotlin_css': '1.0.0-pre.148-kotlin-1.4.21',
         'logback': '1.2.3',
         'appcompat': '1.2.0',
         'constraint_layout': '2.0.4',
@@ -21,7 +22,8 @@ buildscript {
         'kotlin': [
             'gradle_plugin': "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
             'stdlib': "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
-            'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
+            'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}",
+            'css': "org.jetbrains:kotlin-css:${versions.kotlin_css}"
         ],
         'ktor': [
             'netty': "io.ktor:ktor-server-netty:${versions.ktor}",

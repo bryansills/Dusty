@@ -16,6 +16,7 @@ dependencies {
     implementation(deps.ktor.core)
     implementation(deps.ktor.netty)
     implementation(deps.ktor.html)
+    implementation(deps.kotlin.css)
 }
 
 shadowJar {
