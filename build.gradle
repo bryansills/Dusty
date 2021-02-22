@@ -25,7 +25,8 @@ buildscript {
         ],
         'ktor': [
             'netty': "io.ktor:ktor-server-netty:${versions.ktor}",
-            'core': "io.ktor:ktor-server-core:${versions.ktor}"
+            'core': "io.ktor:ktor-server-core:${versions.ktor}",
+            'html': "io.ktor:ktor-html-builder:${versions.ktor}"
         ],
         'android': [
             'gradle_plugin': "com.android.tools.build:gradle:${versions.android_gradle_plugin}",
