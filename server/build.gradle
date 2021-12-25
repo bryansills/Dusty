@@ -1,7 +1,9 @@
-apply plugin: "com.github.johnrengelman.shadow"
-apply plugin: "java"
-apply plugin: "application"
-apply plugin: "kotlin"
+plugins {
+    id "java"
+    id "application"
+    id "org.jetbrains.kotlin.jvm"
+    id "com.github.johnrengelman.shadow" version "7.1.1"
+}
 
 group = "ninja.bryansills.dusty"
 version = "0.0.1-SNAPSHOT"
@@ -23,4 +25,8 @@ shadowJar {
     archiveBaseName.set('dusty-server')
     archiveClassifier.set(null)
     archiveVersion.set('')
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
