@@ -23,6 +23,7 @@ android {
 
 dependencies {
     implementation project(":network")
+    implementation project(":datastore")
 
     implementation deps.kotlin.stdlib
     implementation deps.android.appcompat

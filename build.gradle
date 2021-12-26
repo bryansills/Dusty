@@ -11,7 +11,9 @@ buildscript {
         'constraint_layout': '2.1.2',
         'retrofit': '2.9.0',
         'moshi': '1.13.0',
-        'okhttp': '4.9.3'
+        'okhttp': '4.9.3',
+        'datastore': '1.0.0',
+        'wire': '4.0.1'
     ]
     ext.build_config = [
         'compile_sdk': 31,
@@ -33,7 +35,8 @@ buildscript {
         'android': [
             'gradle_plugin': "com.android.tools.build:gradle:${versions.android_gradle_plugin}",
             'appcompat': "androidx.appcompat:appcompat:${versions.appcompat}",
-            'constraint_layout': "androidx.constraintlayout:constraintlayout:${versions.constraint_layout}"
+            'constraint_layout': "androidx.constraintlayout:constraintlayout:${versions.constraint_layout}",
+            'datastore': "androidx.datastore:datastore:${versions.datastore}"
         ],
         'shadow_jar': "gradle.plugin.com.github.jengelman.gradle.plugins:shadow:${versions.shadow_jar}",
         'logback': "ch.qos.logback:logback-classic:${versions.logback}",
@@ -47,6 +50,10 @@ buildscript {
         ],
         'okhttp': [
             'logging': "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+        ],
+        'wire': [
+            'gradle_plugin': "com.squareup.wire:wire-gradle-plugin:${versions.wire}",
+            'runtime': "com.squareup.wire:wire-runtime:${versions.wire}"
         ]
     ]
     repositories {
@@ -57,6 +64,7 @@ buildscript {
     dependencies {
         classpath deps.android.gradle_plugin
         classpath deps.kotlin.gradle_plugin
+        classpath deps.wire.gradle_plugin
     }
 }
 

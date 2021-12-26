@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.8">
       <module name="Dusty.app" target="11" />
       <module name="Dusty.base64" target="11" />
+      <module name="Dusty.datastore" target="11" />
       <module name="Dusty.network" target="11" />
       <module name="Dusty.network-auth" target="11" />
       <module name="Dusty.quick" target="11" />
